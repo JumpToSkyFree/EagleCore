@@ -18,6 +18,11 @@ if(UNIX)
 		EAGLE_SOURCES
 		src/Unix/EnvironmentUnix.cc
 		)
+elseif(WIN32)
+    list(APPEND
+        EAGLE_SOURCES
+        src/Win32/EnvironmentWin32.cc
+        )
 endif()
 
 add_library(
