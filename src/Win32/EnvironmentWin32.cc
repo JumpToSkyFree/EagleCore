@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 JumpToSkyFree
+ * Copyright (c) 2022 noctice007
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +22,27 @@
  * SOFTWARE.
  */
 
-#include <gtest/gtest.h>
+
+
 #include <EagleCore/Environment.hh>
+#include <processenv.h>
+#include <string>
 
-using namespace Eagle::Core;
+namespace Eagle::Core{
+    constexpr inline DWORD envMaxSize = 32767; // The Max size of environment variable buffer
+                                               // According to https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getenvironmentvariable
 
-TEST(Environment, GetEnvironmentVariableSuccess) {
-	std::string var = getEnvironmentVariable("TEST_EAGLE_VAR");
-	ASSERT_STREQ(var.c_str(), "TRUE");
+    std::string getEnvironmentVariable(const char *name){
+        auto bufferSize = envMaxSize;
+        std::string buffer;
+        buffer.resize(bufferSize);
+        bufferSize = ::GetEnvironmentVariable(name, buffer.data(), envMaxSize);
+        if(bufferSize){
+            buffer.resize(bufferSize);
+            return buffer;
+        }else{
+            return {};
+        }
+    }
 }
 
-TEST(Environment, GetEnvironmentVariableFailure) {
-	std::string var = Eagle::Core::getEnvironmentVariable("TEST_VAR_DONT_EXIST");
-	ASSERT_STREQ(var.c_str(), "");
-}

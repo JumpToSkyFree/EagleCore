@@ -29,7 +29,7 @@
 #include <string_view>
 
 namespace Eagle::Core {
-    [[nodiscard]] std::string GetEnvironmentVariable(const char* name);
+    [[nodiscard]] std::string getEnvironmentVariable(const char* name);
 }
 
 #endif
