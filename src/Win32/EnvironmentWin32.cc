@@ -33,16 +33,14 @@ namespace Eagle::Core{
                                                // According to https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getenvironmentvariable
 
     std::string getEnvironmentVariable(const char *name){
-        auto bufferSize = envMaxSize;
         std::string buffer;
-        buffer.resize(bufferSize);
-        bufferSize = ::GetEnvironmentVariable(name, buffer.data(), envMaxSize);
+        buffer.resize(envMaxSize);
+        const DWORD bufferSize = ::GetEnvironmentVariable(name, buffer.data(), envMaxSize);
         if(bufferSize){
             buffer.resize(bufferSize);
             return buffer;
-        }else{
-            return {};
         }
+        return {};
     }
 }
 
