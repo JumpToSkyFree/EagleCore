@@ -28,11 +28,11 @@
 using namespace Eagle::Core;
 
 TEST(Environment, GetEnvironmentVariableSuccess) {
-	std::string var = GetEnvironmentVariable("TEST_EAGLE_VAR");
+	std::string var = getEnvironmentVariable("TEST_EAGLE_VAR");
 	ASSERT_STREQ(var.c_str(), "TRUE");
 }
 
 TEST(Environment, GetEnvironmentVariableFailure) {
-	std::string var = GetEnvironmentVariable("TEST_VAR_DONT_EXIST");
+	std::string var = Eagle::Core::getEnvironmentVariable("TEST_VAR_DONT_EXIST");
 	ASSERT_STREQ(var.c_str(), "");
 }
