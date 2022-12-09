@@ -33,6 +33,6 @@ TEST(Environment, GetEnvironmentVariableSuccess) {
 }
 
 TEST(Environment, GetEnvironmentVariableFailure) {
-	std::string var = Eagle::Core::getEnvironmentVariable("TEST_VAR_DONT_EXIST");
+	std::string var = getEnvironmentVariable("TEST_VAR_DONT_EXIST");
 	ASSERT_STREQ(var.c_str(), "");
 }
