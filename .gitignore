@@ -4,6 +4,8 @@
 .cache
 *build*
 
+**vscode**
+
 ### C++ ###
 # Prerequisites
 *.d
