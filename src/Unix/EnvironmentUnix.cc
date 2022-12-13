@@ -2,7 +2,7 @@
 #include <string>
 
 namespace Eagle::Core {
-	std::string GetEnvironmentVariable(const char* name) {
+	std::string getEnvironmentVariable(const char* name) {
 #if defined (_GNU_SOURCE)
 		if(const char* var = ::secure_getenv(name)) return var;
 #else
