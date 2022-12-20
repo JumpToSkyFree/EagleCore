@@ -62,7 +62,7 @@ namespace Eagle::Core {
     };
 
     ProcessTerminationExecutor::ProcessTerminationExecutorImpl::ProcessTerminationExecutorImpl(bool shouldExit)
-        : platform{std::make_unique<ProcessTerminationExecutorPlatform>(this)}, _shouldExit{shouldExit}
+        :  _shouldExit{shouldExit}, platform{std::make_unique<ProcessTerminationExecutorPlatform>(this)}
     {
         platform->registerSignal();
     }
@@ -70,7 +70,7 @@ namespace Eagle::Core {
     ProcessTerminationExecutor::ProcessTerminationExecutorImpl::~ProcessTerminationExecutorImpl() = default;
 
     ProcessTerminationExecutor::ProcessTerminationExecutorImpl::ProcessTerminationExecutorImpl(const std::vector<std::shared_ptr<IProcessTerminationTaskHandler>>&& handlers, bool shouldExit)
-        : handlers{std::move(handlers)}, platform{std::make_unique<ProcessTerminationExecutorPlatform>(this)}, _shouldExit{shouldExit}
+        : _shouldExit{shouldExit}, platform{std::make_unique<ProcessTerminationExecutorPlatform>(this)}, handlers{std::move(handlers)}
     {
         platform->registerSignal();
     }
