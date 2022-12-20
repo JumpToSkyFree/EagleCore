@@ -36,8 +36,8 @@ public:
         return true;
     }
 
-    virtual void terminationTaskFail(std::shared_ptr<IProcessTerminationTaskHandler> handler) {}
-    virtual void terminationTaskSuccess(std::shared_ptr<IProcessTerminationTaskHandler> handler) {
+    virtual void terminationTaskFail([[maybe_unused]] std::shared_ptr<IProcessTerminationTaskHandler> handler) {}
+    virtual void terminationTaskSuccess([[maybe_unused]] std::shared_ptr<IProcessTerminationTaskHandler> handler) {
         _done = true;
     }
     inline bool done() const { return _done; }
