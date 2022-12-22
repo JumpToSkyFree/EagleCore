@@ -27,6 +27,7 @@ elseif(WIN32)
     list(APPEND
         EAGLE_SOURCES
         src/Win32/EnvironmentWin32.cc
+        src/Win32/ProcessTerminationImplWin32.cc
         )
 endif()
 
