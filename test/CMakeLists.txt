@@ -3,7 +3,7 @@ project(EagleCoreTests)
 set(EAGLE_TESTS
 	EnvironmentTests.cc
 	ProcessTerminationTests.cc
-	)
+	TimeTests.cc)
 
 enable_testing()
 
