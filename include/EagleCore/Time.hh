@@ -68,15 +68,15 @@ namespace Eagle::Core {
     public:
         GMTime();
 
-        void updateTime();
+        void updateTime() override;
 
-        virtual std::uint32_t second() const;
-        virtual std::uint32_t minute() const;
-        virtual std::uint32_t hour() const;
-        virtual std::uint32_t day() const;
-        virtual std::uint32_t month() const;
-        virtual std::uint32_t dayOfWeek() const;
-        virtual std::uint32_t dayOfYear() const;
+        virtual std::uint32_t second() const override;
+        virtual std::uint32_t minute() const override;
+        virtual std::uint32_t hour() const override;
+        virtual std::uint32_t day() const override;
+        virtual std::uint32_t month() const override;
+        virtual std::uint32_t dayOfWeek() const override;
+        virtual std::uint32_t dayOfYear() const override;
 
     };
 
@@ -95,15 +95,15 @@ namespace Eagle::Core {
     public:
         LocalTime();
 
-        void updateTime();
+        void updateTime() override;
 
-        virtual std::uint32_t second() const;
-        virtual std::uint32_t minute() const;
-        virtual std::uint32_t hour() const;
-        virtual std::uint32_t day() const;
-        virtual std::uint32_t month() const;
-        virtual std::uint32_t dayOfWeek() const;
-        virtual std::uint32_t dayOfYear() const;
+        virtual std::uint32_t second() const override;
+        virtual std::uint32_t minute() const override;
+        virtual std::uint32_t hour() const override;
+        virtual std::uint32_t day() const override;
+        virtual std::uint32_t month() const override;
+        virtual std::uint32_t dayOfWeek() const override;
+        virtual std::uint32_t dayOfYear() const override;
     };
 }
 
