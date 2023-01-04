@@ -10,13 +10,15 @@ get_directory_property(ParentDirectory PARENT_DIRECTORY)
 set(EAGLE_HEADERS
 	include/EagleCore/Environment.hh
 	include/EagleCore/ProcessTermination.hh
-	include/EagleCore/Time.hh)
+	include/EagleCore/Time.hh
+)
 
 set(EAGLE_SOURCES
 	src/ProcessTermination.cc
 	src/ProcessTerminationImpl.hh
 	src/Time.cc
-	src/Posix/TimePosix.hh)
+	src/Posix/TimePosix.hh
+)
 
 if(UNIX)
 	list(APPEND
